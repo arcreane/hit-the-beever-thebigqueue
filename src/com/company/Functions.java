@@ -27,6 +27,18 @@ public class Functions {
         board[X][Y] = String.valueOf('M');
     }
 
+    public static void refreshBoard(int boardWidth, String[][] board) {
+        //déroulé de la fonction
+        fillInSocket(boardWidth,board);
+        // on choisi une position pour la marmotte
+        int CoordMongooseX = (Functions.coordMongoose(boardWidth))[0];
+        int CoordMongooseY = (Functions.coordMongoose(boardWidth))[1];
+        // on déplace la marmotte
+        placeMongoose(CoordMongooseX,CoordMongooseY,board);
+        // on affiche le board//
+        drawBoard(boardWidth,board);
+    }
+
     public static void drawBoard(int boardWidth, String[][] board) {
         separateBars(boardWidth);
         for (int i = 0; i < boardWidth; i++) {

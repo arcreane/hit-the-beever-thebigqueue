@@ -1,6 +1,7 @@
 package com.company;
 
-import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
 
@@ -8,26 +9,28 @@ public class Main {
 
         // write your code here
         //board initialization 
-        int boardWidth = 5;
-        int numberOfTurn = 10;
-        int timer = 5;
-        int CoordMongooseX = (Functions.coordMongoose(boardWidth))[0];
-        int CoordMongooseY = (Functions.coordMongoose(boardWidth))[1];
+        int boardWidth = 7;
+        int numberOfTurn = 5;
 
         // Le plateau carré sera défini par sa largeur, fonction de la difficulté
         String[][] board = new String[boardWidth][boardWidth];
 
-        //initialisation du Tableau-Plateau
-        Functions.fillInSocket(boardWidth, board);
+        Timer chrono = new Timer();
+        chrono.schedule(new TimerTask() {
+            int time = numberOfTurn;
 
-        //on place la marmotte
-        Functions.placeMongoose(CoordMongooseX, CoordMongooseY, board);
+            @Override
+            public void run() {
+                System.out.println("il reste " + time + " tour(s)");
+                Functions.refreshBoard(boardWidth, board);
+                time--;
+                if (time == 1) {
+                    cancel();
+                }
+            }
+        }, 1000, 1000);
 
-        System.out.println("Shoot the Mongoose!!!");
-        System.out.println("Tour n°1");
-
-        // Dessine le plateau
-        Functions.drawBoard(boardWidth, board);
+        Functions.refreshBoard(boardWidth, board);
 
     }
 }
