@@ -14,17 +14,12 @@ public class Main {
         // Le plateau carré sera défini par sa largeur, fonction de la difficulté
         String[][] board = new String[boardWidth][boardWidth];
 
-        Random random = new Random();
-        int newAbscisse = random.nextInt(boardWidth);
-
-        System.out.println(newAbscisse);
-
-
         //initialisation du Tableau-Plateau
         Functions.fillInSocket(boardWidth, board);
 
         System.out.println("Shoot the Mongoose!!!");
         System.out.println("Tour n°1");
+
         // Dessine le plateau
         Functions.drawBoard(boardWidth, board);
 
