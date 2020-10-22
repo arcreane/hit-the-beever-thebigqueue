@@ -1,11 +1,5 @@
 // Variables vont définir la taille du plateau
 
-// Plateau
-// la marmotte doit se placer,
-
-// modifie le tableau
-
-
 // Affiche le plateau avec la 1ere position de la marmotte
  . . M . .
 // le joueur doit entrer les coordonnées

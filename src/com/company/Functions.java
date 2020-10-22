@@ -28,7 +28,7 @@ public class Functions {
     }
 
     public static void refreshBoard(int boardWidth, String[][] board) {
-        //déroulé de la fonction
+        //initialisation du plateau
         fillInSocket(boardWidth,board);
         // on choisi une position pour la marmotte
         int CoordMongooseX = (Functions.coordMongoose(boardWidth))[0];

@@ -1,9 +1,11 @@
 package com.company;
 
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Main {
+    static Timer chrono = new Timer();
 
     public static void main(String[] args) {
 
@@ -15,7 +17,30 @@ public class Main {
         // Le plateau carré sera défini par sa largeur, fonction de la difficulté
         String[][] board = new String[boardWidth][boardWidth];
 
-        Timer chrono = new Timer();
+        Scanner choosenMenu = new Scanner(System.in);
+
+        MenuPrincipale.printHeader();
+        MenuPrincipale.printMenu();
+        String userChoice = choosenMenu.next();
+
+        switch (userChoice) {
+            case "n":
+                theTimer(numberOfTurn, boardWidth, board);
+                break;
+            case "v":
+                System.out.println("High Score");
+                break;
+            case "q":
+                System.out.println("See you next time");
+                break;
+            default:
+                System.out.println("Mauvais Choix");
+        }
+
+
+    }
+
+    public static void theTimer(int numberOfTurn, int boardWidth, String[][] board) {  //____________________________
         chrono.schedule(new TimerTask() {
             int time = numberOfTurn;
 
@@ -30,7 +55,7 @@ public class Main {
             }
         }, 1000, 1000);
 
-        Functions.refreshBoard(boardWidth, board);
+        //____________________________}
 
     }
 }
