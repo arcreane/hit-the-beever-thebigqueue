@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Functions {
     public static void separateBars(int boardWidth) {
@@ -27,16 +28,27 @@ public class Functions {
         board[X][Y] = String.valueOf('M');
     }
 
-    public static void refreshBoard(int boardWidth, String[][] board) {
+    public static void refreshBoard(int boardWidth, String[][] board, String mongoosePlace, String userResult) {
         //initialisation du plateau
-        fillInSocket(boardWidth,board);
+        fillInSocket(boardWidth, board);
+        Scanner coordInput = new Scanner(System.in);
         // on choisi une position pour la marmotte
         int CoordMongooseX = (Functions.coordMongoose(boardWidth))[0];
         int CoordMongooseY = (Functions.coordMongoose(boardWidth))[1];
         // on déplace la marmotte
-        placeMongoose(CoordMongooseX,CoordMongooseY,board);
+        placeMongoose(CoordMongooseX, CoordMongooseY, board);
         // on affiche le board//
-        drawBoard(boardWidth,board);
+        drawBoard(boardWidth, board);
+        // saisir les coordonnées
+        mongoosePlace = String.valueOf(CoordMongooseX + CoordMongooseY);
+        userResult = coordInput.next();
+        System.out.println(userResult);
+        if (mongoosePlace.equals(userResult)) {
+            System.out.println("Score + 1");
+        } else {
+            System.out.println("ne rentre pas");
+        }
+
     }
 
     public static void drawBoard(int boardWidth, String[][] board) {

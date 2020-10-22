@@ -1,12 +1,13 @@
 // Variables vont définir la taille du plateau
 
-// Affiche le plateau avec la 1ere position de la marmotte
- . . M . .
+// Affiche la marmotte
+
 // le joueur doit entrer les coordonnées
-// on vérifie temps && coordonnées
+
 // si OK 1 point
 // Sinon 0
-// à la fin du tour 10 game Over
-// on compare le score du joueur avec le HOF
-// Si sup à un des 5 , replace le tableau HOF
+
+// à la fin du tour 10
+// affiche sur 5
+
 // Gestion des Erreurs

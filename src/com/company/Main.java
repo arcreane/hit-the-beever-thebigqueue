@@ -20,40 +20,26 @@ public class Main {
         Scanner choosenMenu = new Scanner(System.in);
 
         MenuPrincipale.printHeader();
-        MenuPrincipale.printMenu();
-        String userChoice = choosenMenu.next();
-
-        switch (userChoice) {
-            case "n":
-                theTimer(numberOfTurn, boardWidth, board);
-                break;
-            case "v":
-                System.out.println("High Score");
-                break;
-            case "q":
-                System.out.println("See you next time");
-                break;
-            default:
-                System.out.println("Mauvais Choix");
-        }
-
-
+        MenuPrincipale.showMenu(numberOfTurn, boardWidth, board);
     }
 
     public static void theTimer(int numberOfTurn, int boardWidth, String[][] board) {  //____________________________
         chrono.schedule(new TimerTask() {
             int time = numberOfTurn;
+            String mongoosePlace = "";
+            String userResult = "";
+
 
             @Override
             public void run() {
                 System.out.println("il reste " + time + " tour(s)");
-                Functions.refreshBoard(boardWidth, board);
+                Functions.refreshBoard(boardWidth, board, mongoosePlace,userResult);
                 time--;
                 if (time == 1) {
                     cancel();
                 }
             }
-        }, 1000, 1000);
+        }, 1000, 7000);
 
         //____________________________}
 

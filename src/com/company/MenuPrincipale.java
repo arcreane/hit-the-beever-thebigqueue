@@ -2,30 +2,9 @@ package com.company;
 
 import java.util.Scanner;
 
+import static com.company.Main.theTimer;
+
 public class MenuPrincipale {
-
-    /*public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-
-        //default:{System.out.println("-- serieux ! recommence");}
-
-        switch (str) {
-            case "n":
-                System.out.println("Let's play Looser" + str);
-            case "v":
-                System.out.println("High Score" + str);
-            case "q":
-                System.out.println("Bye Bye" + str);
-                break;
-            default:
-                throw new IllegalStateException("-- serieux ! recommence" + str);
-        }
-
-        printMenu2();
-
-    }*/
 
     public static void printHeader() {
         System.out.println("************************");
@@ -46,6 +25,27 @@ public class MenuPrincipale {
         System.out.println("    4 : easy level");
         System.out.println("    5 : medium level");
         System.out.println("    6 : hard level");
+
+    }
+
+    public static void showMenu(int numberOfTurn, int boardWidth, String[][] board) {
+        printMenu();
+        Scanner choosenMenu = new Scanner(System.in);
+        String userChoice = choosenMenu.next();
+
+        switch (userChoice) {
+            case "n":
+                theTimer(numberOfTurn, boardWidth, board);
+                break;
+            case "v":
+                System.out.println("High Score");
+                break;
+            case "q":
+                System.out.println("See you next time");
+                break;
+            default:
+                showMenu(numberOfTurn,boardWidth,board);
+        }
 
     }
 
