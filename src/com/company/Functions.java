@@ -18,6 +18,15 @@ public class Functions {
         }
     }
 
+    //tableau
+    // board[i][0] correspond à l'abscisse/horizontale
+    // board[0][j] correspond à l'ordonnée/verticale
+
+    public static void placeMongoose(int X, int Y, String[][] board) {
+        //on récupère des coordonées que l'on donne au plateau
+        board[X][Y] = String.valueOf('M');
+    }
+
     public static void drawBoard(int boardWidth, String[][] board) {
         separateBars(boardWidth);
         for (int i = 0; i < boardWidth; i++) {
