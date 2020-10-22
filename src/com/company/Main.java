@@ -9,7 +9,7 @@ public class Main {
         // write your code here
         //board initialization 
         int boardWidth = 5;
-        int numberOfTurn = 10;
+        int numberOfTurn = 9;
         int timer = 5;
         // Le plateau carré sera défini par sa largeur, fonction de la difficulté
         String[][] board = new String[boardWidth][boardWidth];
@@ -19,6 +19,8 @@ public class Main {
 
         System.out.println("Shoot the Mongoose!!!");
         System.out.println("Tour n°1");
+
+        //teset
 
         // Dessine le plateau
         Functions.drawBoard(boardWidth, board);
