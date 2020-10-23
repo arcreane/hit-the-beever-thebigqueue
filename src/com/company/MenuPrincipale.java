@@ -20,18 +20,14 @@ public class MenuPrincipale {
         System.out.println("\t q : Quit");
     }
 
-    public static void printMenu2() { //switch case pr la ref
+    public static void selectLevel() {
         System.out.println("Please select your option below:");
-        System.out.println("    4 : easy level");
-        System.out.println("    5 : medium level");
-        System.out.println("    6 : hard level");
-
+        System.out.println("    e : easy level");
+        System.out.println("    m : medium level");
+        System.out.println("    h : hard level");
     }
 
-    public static void showMenu(int numberOfTurn, int boardWidth, String[][] board) {
-        printMenu();
-        Scanner choosenMenu = new Scanner(System.in);
-        String userChoice = choosenMenu.next();
+    public static void showMenu(int numberOfTurn, int boardWidth, String[][] board, String userChoice) {
 
         switch (userChoice) {
             case "n":
@@ -44,7 +40,7 @@ public class MenuPrincipale {
                 System.out.println("See you next time");
                 break;
             default:
-                showMenu(numberOfTurn,boardWidth,board);
+                showMenu(numberOfTurn, boardWidth, board, userChoice);
         }
 
     }

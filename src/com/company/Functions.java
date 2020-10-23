@@ -11,9 +11,9 @@ public class Functions {
         System.out.println("");
     }
 
-    public static void fillInSocket(int boardWidth, String[][] board) {
-        for (int i = 0; i < boardWidth; i++) {
-            for (int j = 0; j < boardWidth; j++) {
+    public static void fillInSocket(int level, String[][] board) {
+        for (int i = 0; i < level; i++) {
+            for (int j = 0; j < level; j++) {
                 board[i][j] = ".";
             }
         }
@@ -28,7 +28,7 @@ public class Functions {
         board[X][Y] = String.valueOf('M');
     }
 
-    public static void refreshBoard(int boardWidth, String[][] board, String mongoosePlace, String userResult) {
+    public static boolean refreshBoard(int boardWidth, String[][] board, String mongoosePlace, String userResult) {
         //initialisation du plateau
         fillInSocket(boardWidth, board);
         Scanner coordInput = new Scanner(System.in);
@@ -40,15 +40,15 @@ public class Functions {
         // on affiche le board//
         drawBoard(boardWidth, board);
         // saisir les coordonnées
-        mongoosePlace = String.valueOf(CoordMongooseX + CoordMongooseY);
+        mongoosePlace = String.valueOf(CoordMongooseX + "" + CoordMongooseY);
+        System.out.println(mongoosePlace);
         userResult = coordInput.next();
         System.out.println(userResult);
         if (mongoosePlace.equals(userResult)) {
-            System.out.println("Score + 1");
+            return true;
         } else {
-            System.out.println("ne rentre pas");
+            return false;
         }
-
     }
 
     public static void drawBoard(int boardWidth, String[][] board) {
@@ -72,4 +72,30 @@ public class Functions {
         }
         return arrayMongoose;
     }
+
+    public static void gameOver(int score, String[][] hallOfFame) {
+        //hallOfFame[i][1] score
+        //hallOfFame[i][0] nom
+        //Si tableau score valable, on inclue le score et le nom
+        for (int i = 0; i < hallOfFame.length; i++) {
+            if (hallOfFame[i][1] == null) {
+                hallOfFame[i][1] = String.valueOf(score);
+                break;
+            }
+        }
+
+        //On demande le nom, et on associe le score
+        Scanner userName = new Scanner(System.in);
+        // on trie le tableau
+        // On affiche le tableau
+        for (int i = 0; i < hallOfFame.length; i++) {
+            System.out.println(hallOfFame[i][1]);
+        }
+
+        //Affichage du score
+        System.out.println("votre score est de: " + score);
+        // refaire une partie
+    }
 }
+
+
