@@ -1,13 +1,10 @@
-package ex;
+package com.company;
 
-import java.util.Map.Entry;
-import java.util.Timer;
 import java.util.TimerTask;
 
-public class Main {
-
-    public static void main(String[] args) {
-        Timer chrono = new Timer();
+public class Timecode {
+    static public void  timer1() {
+        java.util.Timer chrono = new java.util.Timer();
         chrono.schedule(new TimerTask() {
             @Override
             public void run() {

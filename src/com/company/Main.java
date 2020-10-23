@@ -4,8 +4,8 @@ import java.util.Random;
 
 public class Main {
 
-    public static void main(String[] args) {
-
+    public static void main (String[] args) {
+Timecode.timer1();
         // write your code here
         //board initialization 
         int boardWidth = 5;
