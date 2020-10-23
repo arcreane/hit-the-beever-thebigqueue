@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Scanner;
-
 import static com.company.Main.theTimer;
 
 public class MenuPrincipale {
@@ -16,7 +14,6 @@ public class MenuPrincipale {
     public static void printMenu() {
         System.out.println("Please select one option below");
         System.out.println("\t n : New Game");
-        System.out.println("\t v : View HighScore");
         System.out.println("\t q : Quit");
     }
 
@@ -28,22 +25,18 @@ public class MenuPrincipale {
     }
 
     public static void showMenu(int numberOfTurn, int boardWidth, String[][] board, String userChoice) {
-
+        System.out.println("UserChoice L28 " + userChoice);
         switch (userChoice) {
             case "n":
-                theTimer(numberOfTurn, boardWidth, board);
-                break;
-            case "v":
-                System.out.println("High Score");
+                //theTimer(numberOfTurn, boardWidth, board);
                 break;
             case "q":
                 System.out.println("See you next time");
+
                 break;
             default:
                 showMenu(numberOfTurn, boardWidth, board, userChoice);
         }
-
     }
-
 }
 

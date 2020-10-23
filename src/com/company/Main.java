@@ -8,12 +8,11 @@ public class Main {
     static Timer chrono = new Timer();
 
     public static void main(String[] args) {
+        //board initialization
+        int numberOfTurn = 10;
+        int boardWidth = 5;
 
-        // write your code here
-        //board initialization 
-        int numberOfTurn = 5;
-        int boardWidth=5;
-
+        //_____ invite de choix menu principale
         MenuPrincipale.printHeader();
 
         MenuPrincipale.printMenu();
@@ -22,45 +21,48 @@ public class Main {
 
         MenuPrincipale.selectLevel();
         String userLevel = choosenMenu.next();
-        switch (userLevel){
-            case "e":  boardWidth = 5;break;
-            case "m":  boardWidth =7;break;
-            case "h":  boardWidth = 10;break;
-        }
+        //_____ invite de choix menu principale
+
 
         // Le plateau carré sera défini par sa largeur, fonction de la difficulté
+        switch (userLevel) {
+            case "e":
+                boardWidth = 5;
+                break;
+            case "m":
+                boardWidth = 7;
+                break;
+            case "h":
+                boardWidth = 10;
+                break;
+        }
+
         String[][] board = new String[boardWidth][boardWidth];
 
-        MenuPrincipale.showMenu(numberOfTurn,boardWidth, board,userChoice);
+        MenuPrincipale.showMenu(numberOfTurn, boardWidth, board, userChoice);
     }
 
-    public static void theTimer(int numberOfTurn, int boardWidth, String[][] board) {  //____________________________
+    public static void theTimer(int numberOfTurn, int boardWidth, String[][] board) {
         chrono.schedule(new TimerTask() {
             int time = numberOfTurn;
-            String mongoosePlace = "";
-            String userResult = "";
             int score = 0;
-            String[][] hallOfFame = new String[5][2];
-
 
             @Override
             public void run() {
 
                 System.out.println("il reste " + time + " tour(s)");
-                if (Functions.refreshBoard(boardWidth, board, mongoosePlace, userResult)) {
+                if (Functions.refreshBoard(boardWidth, board)) {
                     score++;
                 }
-
                 time--;
-                if (time == 1) {
+                if (time == 0) {
                     cancel();
-                    Functions.gameOver(score, hallOfFame);
+                    Functions.gameOver(score);
                 }
                 System.out.println("Score: " + score);
             }
         }, 1000, 1000);
 
-        //____________________________}
 
     }
 }

@@ -4,10 +4,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Functions {
+
     public static void separateBars(int boardWidth) {
         for (int loop = 0; loop < boardWidth + 2 + (2 * boardWidth); loop++) {
             System.out.print('-');
         }
+        // Le déboggueur le qualifie de non-nécessaire mais il FAUT LE GARDER pour le bien du programme!!!
         System.out.println("");
     }
 
@@ -18,7 +20,6 @@ public class Functions {
             }
         }
     }
-
     //tableau
     // board[i][0] correspond à l'abscisse/horizontale
     // board[0][j] correspond à l'ordonnée/verticale
@@ -28,7 +29,7 @@ public class Functions {
         board[X][Y] = String.valueOf('M');
     }
 
-    public static boolean refreshBoard(int boardWidth, String[][] board, String mongoosePlace, String userResult) {
+    public static boolean refreshBoard(int boardWidth, String[][] board) {
         //initialisation du plateau
         fillInSocket(boardWidth, board);
         Scanner coordInput = new Scanner(System.in);
@@ -40,10 +41,10 @@ public class Functions {
         // on affiche le board//
         drawBoard(boardWidth, board);
         // saisir les coordonnées
-        mongoosePlace = String.valueOf(CoordMongooseX + "" + CoordMongooseY);
-        System.out.println(mongoosePlace);
-        userResult = coordInput.next();
-        System.out.println(userResult);
+        String mongoosePlace = (CoordMongooseX + "" + CoordMongooseY);
+        String userResult = coordInput.next();
+
+        //Le if peut-être simplifié mais pour une raison qui m'échappe le programme plante en me demandant un return
         if (mongoosePlace.equals(userResult)) {
             return true;
         } else {
@@ -73,25 +74,7 @@ public class Functions {
         return arrayMongoose;
     }
 
-    public static void gameOver(int score, String[][] hallOfFame) {
-        //hallOfFame[i][1] score
-        //hallOfFame[i][0] nom
-        //Si tableau score valable, on inclue le score et le nom
-        for (int i = 0; i < hallOfFame.length; i++) {
-            if (hallOfFame[i][1] == null) {
-                hallOfFame[i][1] = String.valueOf(score);
-                break;
-            }
-        }
-
-        //On demande le nom, et on associe le score
-        Scanner userName = new Scanner(System.in);
-        // on trie le tableau
-        // On affiche le tableau
-        for (int i = 0; i < hallOfFame.length; i++) {
-            System.out.println(hallOfFame[i][1]);
-        }
-
+    public static void gameOver(int score) {
         //Affichage du score
         System.out.println("votre score est de: " + score);
         // refaire une partie
