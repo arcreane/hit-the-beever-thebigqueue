@@ -66,9 +66,10 @@ public class Functions {
         }
         separateBars(boardWidth);
         System.out.print(". ");
-        for (int loop = 0; loop < boardWidth ; loop++) {
-            System.out.print(loop+"  ");
+        for (int loop = 0; loop < boardWidth; loop++) {
+            System.out.print(loop + "  ");
         }
+        System.out.println("");
 
     }
 

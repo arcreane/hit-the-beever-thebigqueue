@@ -61,7 +61,7 @@ public class Main {
                 }
                 System.out.println("Score: " + score);
             }
-        }, 1000, 1000);
+        }, 1000, 4000);
 
 
     }

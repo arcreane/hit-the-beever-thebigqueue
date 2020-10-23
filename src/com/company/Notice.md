@@ -1,4 +1,4 @@
-Difficulté rencontrés lors de l'élaboration du projet:
+Difficultés rencontrées lors de l'élaboration du projet:
 
 -problèmes de synchronisation avc git des différents membres de l'équipe
     la décision unanime a été prise de laisser le responsable d'équipe de commiter et pusher sur Github. 
