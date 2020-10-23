@@ -25,10 +25,9 @@ public class MenuPrincipale {
     }
 
     public static void showMenu(int numberOfTurn, int boardWidth, String[][] board, String userChoice) {
-        System.out.println("UserChoice L28 " + userChoice);
         switch (userChoice) {
             case "n":
-                //theTimer(numberOfTurn, boardWidth, board);
+                theTimer(numberOfTurn, boardWidth, board);
                 break;
             case "q":
                 System.out.println("See you next time");

@@ -6,13 +6,14 @@ import java.util.Scanner;
 public class Functions {
 
     public static void separateBars(int boardWidth) {
-        for (int loop = 0; loop < boardWidth + 2 + (2 * boardWidth); loop++) {
+        for (int loop = 0; loop < boardWidth + 3 + (2 * boardWidth); loop++) {
             System.out.print('-');
         }
         // Le déboggueur le qualifie de non-nécessaire mais il FAUT LE GARDER pour le bien du programme!!!
         System.out.println("");
     }
 
+    //remplissage initial du plateau
     public static void fillInSocket(int level, String[][] board) {
         for (int i = 0; i < level; i++) {
             for (int j = 0; j < level; j++) {
@@ -60,9 +61,15 @@ public class Functions {
                 System.out.print(" " + board[j][i] + " ");
             }
             System.out.print('|');
+            System.out.print(i);
             System.out.println();
         }
         separateBars(boardWidth);
+        System.out.print(". ");
+        for (int loop = 0; loop < boardWidth ; loop++) {
+            System.out.print(loop+"  ");
+        }
+
     }
 
     public static int[] coordMongoose(int boardWidth) {
